@@ -9,6 +9,8 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: #000;
+  color: #fff;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -22,4 +24,31 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #root, #__next {
   isolation: isolate;
+}
+
+/* css reset kodu ---> 'https://www.joshwcomeau.com/css/custom-css-reset/' */
+
+.container {
+  width: 1265px;
+  margin: 0 auto;
+  display: flex;
+}
+.main {
+  display: flex;
+  flex: 1;
+  gap: 30px;
+}
+.content {
+  max-width: 600px;
+  flex: 1;
+  border-left: 1px solid #2f3336;
+  border-right: 1px solid #2f3336;
+}
+.leftbar {
+  width: 275px;
+  height: 100vh; 
+  /* 100vh 'view height' ekranın görünen yüksekliğinin tamamı anlamına gelir */
+}
+.rightbar {
+  width: 350px;
 }
