@@ -49,6 +49,10 @@ p, h1, h2, h3, h4, h5, h6 {
   height: 100vh; 
   /* 100vh 'view height' ekranın görünen yüksekliğinin tamamı anlamına gelir */
 }
+.logo {
+  width: 60px;
+  height: 60px;
+}
 .rightbar {
   width: 350px;
 }

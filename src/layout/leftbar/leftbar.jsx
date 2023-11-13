@@ -1,9 +1,10 @@
+import Logo from "./logo/logo";
 
 
 export default function Leftbar() {
     return(
         <aside className="leftbar">
-            Anil
+            <Logo />
         </aside>
     );
 }
