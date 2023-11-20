@@ -25,8 +25,18 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 
 /* css reset kodu ---> 'https://www.joshwcomeau.com/css/custom-css-reset/' */
+h4 {
+  color: #fff;
+  font-size: 20px;
+}
 
 .container {
   width: 1265px;
@@ -55,4 +65,18 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 .rightbar {
   width: 350px;
+}
+.navbar {
+  padding-left: 5px;
+}
+.navbarBox {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px;
+  height: 50.25px;
+  gap: 12px;
+  border-radius: 25px;
+}
+.navbarBox:hover {
+  background-color: #2f3336;
 }
