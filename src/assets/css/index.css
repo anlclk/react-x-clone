@@ -37,6 +37,17 @@ h4 {
   color: #fff;
   font-size: 20px;
 }
+details {
+  padding-left: 12px;
+  border-left: 1px solid #2f3336;
+  border-top: 1px solid #2f3336;
+  border-bottom: 1px solid #2f3336;
+}
+summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 .container {
   width: 1265px;
@@ -78,5 +89,16 @@ h4 {
   border-radius: 25px;
 }
 .navbarBox:hover {
+  background-color: #2f3336;
+}
+.details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+details[open] summary {
+  padding-bottom: 20px;
+}
+.details:hover {
   background-color: #2f3336;
 }
