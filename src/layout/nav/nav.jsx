@@ -112,7 +112,6 @@ export default function Navbar() {
                         <h4>Bookmarks</h4>
                     </div>
                 </Link>
-                <h2>Settings</h2>
             </details>
         </nav>
     );
