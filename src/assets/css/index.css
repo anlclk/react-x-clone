@@ -103,31 +103,89 @@ details[open] summary {
 .details:hover {
   background-color: #2f3336;
 }
-.homeList {
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(12px);
-  height: 53px;
-  border-bottom:1px solid #2f3336;
+.filterTweet {
   position: sticky;
   top: 0;
+  display: flex;
+  width: 598px;
+  height: 53px;
+  border-bottom: 1px solid #2f3336;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
 }
-.homeList li {
+.filterTweet h5 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+.filterForyou {
   width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #71767b;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
-.homeList a {
-  color: rgb(113, 118, 123);
-  height: 52px;
+.filterForyou:hover {
+  background-color: #2f3336;
+}
+.filterForyou:focus h5 {
+  border-bottom: 4px solid rgb(29, 155, 240);
+  color: #fff;
+}
+.filterFollowing {
+  width: 50%;
+  height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #71767b;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
-.homeList li:first-child {
-  border-right: 1px solid #2f3336;
+.filterFollowing:hover {
+  background-color: #2f3336;
 }
+.filterFollowing:focus h5 {
+  border-bottom: 4px solid rgb(29, 155, 240);
+  color: #fff;
+}
+/* .btnForyou {
+  height: 100%;
+  background: none;
+  color: #71767b;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 4px solid #000;
+
+  cursor: pointer;
+}
+.btnFollowing {
+  height: 100%;
+  color: #71767b;
+  background-color: #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 4px solid #000;
+  cursor: pointer;
+}
+.btnForyou:focus {
+  border-bottom: 4px solid rgb(29, 155, 240);
+  color: #fff;
+}
+.btnFollowing:focus {
+  border-bottom: 4px solid rgb(29, 155, 240);
+  color: #fff;
+} */
 .searchBar {
   position: sticky;
   top: 0;

@@ -1,12 +1,15 @@
 export default function Home() {
     return(
-        <ul className="homeList">
-            <li>
-                <a href="#">For you</a>
-            </li>
-            <li>
-                <a href="#">Following</a>
-            </li>
-        </ul>
+        <>
+        <div className="filterTweet">
+            <button className="filterForyou">
+                <h5>For you</h5>
+            </button>
+            <button className="filterFollowing">
+                <h5>Following</h5>
+            </button>
+        </div>
+        anıl
+        </>
     );
 }
