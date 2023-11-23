@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import Post from "../leftbar/post/post";
 
 export default function Navbar() {
     return(
@@ -113,7 +113,9 @@ export default function Navbar() {
                     </div>
                 </Link>
             </details>
+            <Post />
         </nav>
+        
     );
 }
 

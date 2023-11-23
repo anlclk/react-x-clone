@@ -1,5 +1,5 @@
 import Logo from "./logo/logo";
-import Nav from "../nav/nav"
+import Nav from "../nav/nav";
 
 
 export default function Leftbar() {
