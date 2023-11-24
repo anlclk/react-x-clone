@@ -9,7 +9,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: #000;
+  background-color: #fff;
   color: #fff;
 }
 img, picture, video, canvas, svg {
@@ -157,35 +157,6 @@ details[open] summary {
   border-bottom: 4px solid rgb(29, 155, 240);
   color: #fff;
 }
-/* .btnForyou {
-  height: 100%;
-  background: none;
-  color: #71767b;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 4px solid #000;
-
-  cursor: pointer;
-}
-.btnFollowing {
-  height: 100%;
-  color: #71767b;
-  background-color: #000;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 4px solid #000;
-  cursor: pointer;
-}
-.btnForyou:focus {
-  border-bottom: 4px solid rgb(29, 155, 240);
-  color: #fff;
-}
-.btnFollowing:focus {
-  border-bottom: 4px solid rgb(29, 155, 240);
-  color: #fff;
-} */
 .searchBar {
   position: sticky;
   top: 0;
@@ -306,4 +277,61 @@ details[open] summary {
 }
 .btnTrend svg:hover {
   color: rgb(29, 155, 240);
+}
+.loginRegisterPage {
+  border: 2px solid yellowgreen;
+  width: 60%;
+  margin: auto;
+  height: 800px;
+  display: flex;
+  align-items: center;
+}
+.login{
+  width: 50%;
+  border: 2px solid sienna;
+  margin: 0 auto;
+  height: 300px;
+} 
+.login h1 {
+  color: #2f3336;
+  text-align: center;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.loginForm input {
+  width: 50%;
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-bottom: 10px;
+}
+.loginForm input:focus, .loginForm input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: rgb(29, 155, 240);
+}
+.loginForm input:focus::placeholder {
+  opacity: 0;
+  transition: 1s;
+}
+.btnLogin {
+  width: 150px;
+  height: 40px;
+  padding: 0 32px;
+  border-radius: 24px;
+  border: none;
+  color: #fff;
+  background-color: rgb(29, 155, 240);
+}
+.btnLogin:hover {
+  background-color: rgb(41, 147, 217);
 }
