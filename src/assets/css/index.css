@@ -279,47 +279,77 @@ details[open] summary {
   color: rgb(29, 155, 240);
 }
 .loginRegisterPage {
-  border: 2px solid yellowgreen;
-  width: 60%;
-  margin: auto;
-  height: 800px;
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
-}
-.login{
-  width: 50%;
-  border: 2px solid sienna;
-  margin: 0 auto;
-  height: 300px;
-} 
-.login h1 {
-  color: #2f3336;
-  text-align: center;
-}
-.loginForm {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  background-color: #000;
 }
-.loginForm input {
-  width: 50%;
+.loginRegister {
+  position: relative;
+  width: 380px;
+  height: 480px;
+  overflow: hidden;
+}
+.btnBox {
+  width: 220px;
+  position: relative;
+  margin: 20px auto;
+  box-shadow: 0 0 30px 1px rgb(29, 155, 240);
+  border-radius: 16px;
+}
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 110px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  z-index: 1;
+  transition: .2s;
+}
+.btnToggle {
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  position: relative;
+  outline: none;
+  color: #fff;
+}
+.form {
+  position: absolute;
+  top: 180px;
+  width: 280px;
+  transition: .2s;
+}
+.form input {
+  display: block;
+  width: 100%;
   line-height: 28px;
   border: 2px solid transparent;
-  border-bottom-color: #777;
+  border-bottom-color: #938f8f;
   padding: .2rem 0;
   outline: none;
   background-color: transparent;
-  color: #0d0c22;
+  color: #fff;
   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
   margin-bottom: 10px;
 }
-.loginForm input:focus, .loginForm input:hover {
+.form input::placeholder {
+  color: #fff;
+}
+.form input:focus, .form input:hover {
   outline: none;
   padding: .2rem 1rem;
   border-radius: 1rem;
   border-color: rgb(29, 155, 240);
 }
-.loginForm input:focus::placeholder {
+.form input:focus::placeholder {
   opacity: 0;
   transition: 1s;
 }
@@ -331,7 +361,16 @@ details[open] summary {
   border: none;
   color: #fff;
   background-color: rgb(29, 155, 240);
+  cursor: pointer;
+  margin-top: 12px;
+  margin-left: 70px;
 }
 .btnLogin:hover {
   background-color: rgb(41, 147, 217);
+}
+#login {
+  left: 50px;
+}
+#register {
+  left: 450px;
 }
