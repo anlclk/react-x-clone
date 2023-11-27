@@ -288,15 +288,58 @@ details[open] summary {
 }
 .loginRegister {
   position: relative;
-  width: 380px;
-  height: 480px;
+  width: 600px;
+  height: 570px;
   overflow: hidden;
+}
+.registerArea {
+  border: 1px solid salmon;
+  width: 598px;
+  height: 470px;
+  position: relative;
+  margin: 0 auto;
+}
+.wallpaper {
+  margin-bottom: 80px;
+}
+.wallpaper img {
+  position: relative;
+}
+input[type="file"] {
+  display: none;
+}
+.wallpaperPreviewArea {
+  border: 1px solid gray;
+  display: inline-block;
+  width: 550px;
+  height: 183px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.profilePictures {
+  position: absolute;
+  left: 20px;
+  top: 120px;
+  height: 133px;
+  width: 133px;
+  border: solid 5px #000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profilePictures img {
+  object-fit: cover;
+}
+.btnFile {
+  width: 100%;
+  height: 200px;
 }
 .btnBox {
   width: 220px;
   position: relative;
   margin: 20px auto;
-  box-shadow: 0 0 30px 1px rgb(29, 155, 240);
+  /* box-shadow: 0 0 30px 1px rgb(29, 155, 240); */
   border-radius: 16px;
 }
 .slider {
@@ -307,6 +350,7 @@ details[open] summary {
   width: 110px;
   border-radius: 16px;
   display: flex;
+  align-items: center;
   justify-content: center;
   background-color: #000;
   z-index: 1;
@@ -323,13 +367,16 @@ details[open] summary {
 }
 .form {
   position: absolute;
-  top: 180px;
-  width: 280px;
+  top: 80px;
+  width: 100%;
   transition: .2s;
 }
-.form input {
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"]
+{
   display: block;
-  width: 100%;
+  width: 50%;
   line-height: 28px;
   border: 2px solid transparent;
   border-bottom-color: #938f8f;
@@ -369,8 +416,9 @@ details[open] summary {
   background-color: rgb(41, 147, 217);
 }
 #login {
-  left: 50px;
+  top: 200px;
+  left: 150px;
 }
 #register {
-  left: 450px;
+  left: 630px;
 }
