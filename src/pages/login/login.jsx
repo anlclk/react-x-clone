@@ -1,4 +1,26 @@
 import { useRef } from "react";
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient('https://lidphrkwukyweuidqvrw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpZHBocmt3dWt5d2V1aWRxdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA4NTQyNjksImV4cCI6MjAxNjQzMDI2OX0.3MfFWLCYehENg4UzNfw1I452MesQKqw0MgNJLNjNSqk');
+
+const addUser = async(e) => {
+    e.preventDefault();
+    const userSignIn = Object.fromEntries(new FormData(e.target));
+    console.log(userSignIn) 
+    
+    const { data, error } = await supabase.auth.signUp(
+        {
+        email: userSignIn.email,
+        password: userSignIn.password,
+        options: {
+            data: {
+            bio: userSignIn.bio,
+            username: userSignIn.username,
+            }
+        }
+        }
+    )
+}
 
 export default function Login() {
     const loginEl = document.querySelector("#login");
@@ -6,8 +28,8 @@ export default function Login() {
     const btnEl = document.querySelector(".slider");
 
     function handleLoginForm() {
-        registerEl.style.left = "28px";
         loginEl.style.left = "-500px";
+        registerEl.style.left = "28px";
         btnEl.style.left = "0";
     }
     
@@ -18,6 +40,7 @@ export default function Login() {
     }
 
     const imagePreview = useRef();
+    const profilePicturesPreview = useRef();
 
     function previewImage(e) {
         const reader = new FileReader();
@@ -25,6 +48,14 @@ export default function Login() {
             imagePreview.current.src = ev.target.result;
         }
         reader.readAsDataURL(e.target.files[0]);
+    }
+
+    function previewProfilePictures(e) {
+        const readerProfile = new FileReader();
+        readerProfile.onload = function(ev) {
+            profilePicturesPreview.current.src = ev.target.result;
+        }
+        readerProfile.readAsDataURL(e.target.files[0]);
     }
     return(
         <div className="loginRegisterPage">
@@ -44,23 +75,30 @@ export default function Login() {
                 <form id="login" className="form">
                         <input required type="text" name="userId" placeholder="@userId"/> 
                         <input required type="password" name="password" placeholder="password" />
-                        <button className="btnLogin">login</button>
+                        <button className="btnLogin" type="submit">login</button>
                 </form>
-                <form id="register" className="form">
+                <form id="register" className="form" onSubmit={addUser}>
                     <div className="wallpaper">
-                        <img src="https://placehold.co/550x183" ref={imagePreview} alt="" />
+                        <img src="https://placehold.co/550x183" ref={imagePreview} alt="wallpaper" />
                         <label className="wallpaperPreviewArea">
                             <input type="file" className="wallpaperUpload" name="wallpaperImg" onChange={previewImage} accept="image/png, image/jpeg" id="wallpaperInput" />
                         </label>
                     </div>
                     <div className="profilePictures">
-                        <img src="https://placehold.co/377x377" alt="" />
+                        <div className="profilePictureRelative">
+                            <img src="https://placehold.co/377x377" ref={profilePicturesPreview} alt="profilePicture" />
+                            <label className="profilePicturesPreviewArea">
+                                <input type="file" name="profilePicturesUpload" onChange={previewProfilePictures} accept="image/png, image/jpeg" id="profilePicturesInput" />
+                            </label>
+                        </div>
                     </div>
                     <div className="userDetails">
                         <input required name="username" type="text" placeholder="username" />
                         <input required type="text" name="userId" placeholder="@userId"/>
+                        <input required type="text" name="bio" placeholder="bio" />
                         <input required type="email" name="email" placeholder="e-mail"/>
-                        <button className="btnLogin">Sign In</button>
+                        <input required type="password" name="password" placeholder="password"/>
+                        <button className="btnLogin" type="submit" >Sign In</button>
                     </div>
                 </form>
             </div>
