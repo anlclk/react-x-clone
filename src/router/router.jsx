@@ -7,40 +7,36 @@ import Login from "../pages/login/login";
 
 const routes = createBrowserRouter([
     {
-        
         path: '/login',
         element: <Login />
-        
-        // path: '/',
-        // element: <Layout />,
-        // children: [
-        //     {
-        //         index: true,
-        //         element: <Home />
-        //     },
-        //     {
-        //         path: 'explore',
-        //         element: <Explore />
-        //     },
-        //     {
-        //         path: 'notification',
-        //         element: <Notification />
-        //     },
-        //     {
-        //         path: 'profile',
-        //         element: 'profile component'
-        //     },
-        //     {
-        //         path: 'login',
-        //         element: <Login />
-        //     },
-        //     {
-        //         path: '*',
-        //         element: 'sayfa bulunamadı'
-        //     }
-        // ]
     },
-   
+    {
+        path: '/',
+        element: <Layout />,
+        children: [
+                    {
+                        index: true,
+                        element: <Home />
+                    },
+                    {
+                        path: 'explore',
+                        element: <Explore />
+                    },
+                    {
+                        path: '/notification',
+                        element: <Notification />
+                    },
+                    {
+                        path: '/profile',
+                        element: 'profile component'
+                    },
+                    {
+                        path: '*',
+                        element: 'sayfa bulunamadı'
+                    }
+                    ]
+    }
 ])
-
+             
 export default routes;
+        

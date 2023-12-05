@@ -9,7 +9,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: #fff;
+  background-color: #000;
   color: #fff;
 }
 img, picture, video, canvas, svg {
