@@ -11,8 +11,9 @@ const addUser = async(e) => {
     e.preventDefault();
     const userSignIn = Object.fromEntries(new FormData(e.target));
     console.log(userSignIn);
-    console.log(userSignIn.profilePicturesUpload);
-    console.log(userSignIn.wallpaperImg);
+    // console.log(userSignIn.profilePicturesUpload);
+    // console.log(userSignIn.wallpaperImg);
+    // console.log(userSignIn.wallpaperImg.name)
     
     const { data, error } = await supabase.auth.signUp(
         {
@@ -21,14 +22,17 @@ const addUser = async(e) => {
             options: {
                 data: {
                     bio: userSignIn.bio,
-                    username: userSignIn.username
+                    username: userSignIn.username,
+                    userId: userSignIn.userId
                 }
             }
         }
     );
+
     const { data: imgData, error: imgError } = await supabase.storage
         .from('profileandwallpaper')
-        .upload('resim.jpg', userSignIn.wallpaperImg);
+        .upload(`${userSignIn.email}`, userSignIn.wallpaperImg);
+        
         console.log(imgData);
         console.log(imgError);
 }
