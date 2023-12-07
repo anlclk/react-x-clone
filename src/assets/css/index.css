@@ -327,7 +327,7 @@ input[type="file"] {
 }
 .profilePictures {
   position: absolute;
-  left: 20px;
+  left: 17px;
   top: 120px;
   height: 133px;
   width: 133px;
@@ -435,9 +435,34 @@ input[type="file"] {
 .btnLogin:hover {
   background-color: rgb(41, 147, 217);
 }
+.profileArea {
+  position: relative;
+}
 .profileUsername {
   height: 58px;
   width: 100%;
   padding: 6px 16px;
   border-bottom: 1px solid #2f3336;
+}
+.informationProfile {
+  height: 197px;
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background-color: #71767b;
+}
+.setupProfile {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+.setupProfile button {
+  color: #fff;
+  background-color: #000;
+  height: 36px;
+  padding-inline: 16px;
+  border-radius: 17px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgb(83, 100, 113);
 }

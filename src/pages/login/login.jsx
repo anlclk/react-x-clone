@@ -3,8 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 import { useNavigate } from "react-router-dom";
 
 
-const supabase = createClient('https://lidphrkwukyweuidqvrw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpZHBocmt3dWt5d2V1aWRxdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA4NTQyNjksImV4cCI6MjAxNjQzMDI2OX0.3MfFWLCYehENg4UzNfw1I452MesQKqw0MgNJLNjNSqk');
- 
+export const supabase = createClient('https://lidphrkwukyweuidqvrw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpZHBocmt3dWt5d2V1aWRxdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA4NTQyNjksImV4cCI6MjAxNjQzMDI2OX0.3MfFWLCYehENg4UzNfw1I452MesQKqw0MgNJLNjNSqk');
+
+
 
 
 const addUser = async(e) => {
