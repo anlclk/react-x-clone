@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const supabase = createClient('https://lidphrkwukyweuidqvrw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpZHBocmt3dWt5d2V1aWRxdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA4NTQyNjksImV4cCI6MjAxNjQzMDI2OX0.3MfFWLCYehENg4UzNfw1I452MesQKqw0MgNJLNjNSqk');
-
+ 
 
 
 const addUser = async(e) => {
@@ -29,12 +29,20 @@ const addUser = async(e) => {
         }
     );
 
-    const { data: imgData, error: imgError } = await supabase.storage
+    const { data: imgWallpaper, error: imgWallpaperError } = await supabase.storage
         .from('profileandwallpaper')
-        .upload(`${userSignIn.email}`, userSignIn.wallpaperImg);
+        .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
         
-        console.log(imgData);
-        console.log(imgError);
+        console.log(imgWallpaper);
+        console.log(imgWallpaperError);
+    
+
+    const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
+        .from('profileandwallpaper')
+        .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
+        
+        console.log(imgProfilePictures);
+        console.log(imgProfilePicturesError);
 }
     
 
@@ -61,6 +69,8 @@ export default function Login() {
             })
             // console.log(userLoginForm);
             // console.log(user);
+
+            console.log(user);
 
             if(error) {
                 console.log('Hatalı şifre veya böyle bir kullanıcı bulunamadı');

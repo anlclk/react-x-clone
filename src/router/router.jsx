@@ -4,6 +4,7 @@ import Notification from "../pages/notifications/notifications";
 import Explore from "../pages/explore/explore";
 import Layout from "../layout/layout";
 import Login from "../pages/login/login";
+import Profile from "../pages/profile/profile";
 
 const routes = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const routes = createBrowserRouter([
                     },
                     {
                         path: '/profile',
-                        element: 'profile component'
+                        element: <Profile />
                     },
                     {
                         path: '*',

@@ -435,3 +435,9 @@ input[type="file"] {
 .btnLogin:hover {
   background-color: rgb(41, 147, 217);
 }
+.profileUsername {
+  height: 58px;
+  width: 100%;
+  padding: 6px 16px;
+  border-bottom: 1px solid #2f3336;
+}

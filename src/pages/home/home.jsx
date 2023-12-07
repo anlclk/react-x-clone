@@ -3,10 +3,10 @@ export default function Home() {
         <>
         <div className="filterTweet">
             <button className="filterForyou">
-                <h5>For you</h5>
+                <h5>Sana özel</h5>
             </button>
             <button className="filterFollowing">
-                <h5>Following</h5>
+                <h5>Takip ettiklerin</h5>
             </button>
         </div>
         anıl
