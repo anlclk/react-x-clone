@@ -466,3 +466,114 @@ input[type="file"] {
   cursor: pointer;
   border: 1px solid rgb(83, 100, 113);
 }
+.displayShare {
+  width: 100%;
+  display: flex;
+  height: 53px;
+  border-bottom: 1px solid #2f3336;
+  /* background-color: aquamarine; */
+}
+.displayClickArea {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  padding: 0 16px;
+}
+.displayClickArea:hover,
+.displayClickArea:hover button {
+  background-color: #71767b;
+}
+.displaybtnPost,
+.displaybtnLikes {
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  outline: none;
+  border: none;
+}
+.addTweetArea {
+  background-color: #dcdfe1;
+  width: 600px;
+  height: 280px;
+  border: 1px solid #1D9BF0;
+  border-radius: 20px;
+  padding: 10px 15px;
+  /* background-color: yellowgreen; */
+  position: absolute;
+  left: 47%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; 
+  -webkit-box-shadow: -12px 0px 169px 35px rgba(29,155,240,0.8);
+  -moz-box-shadow: -12px 0px 169px 35px rgba(29,155,240,0.8);
+  box-shadow: -12px 0px 169px 35px rgba(29,155,240,0.8);
+}
+.btnModal {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  background-color: #dcdfe1;
+  margin-bottom: 15px;
+  border: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.btnModal:hover {
+  background-color: #0f78bebc;;
+}
+.profileandTweet {
+  display: flex;
+  width: 100%;
+  height: 160px;
+  border-bottom: 1px solid #2f3336;
+}
+.modalProfilePictures {
+  width: 40px;
+  margin-right: 12px;
+}
+.modalImg {
+  /* border: solid 1px green; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.modalImg img {
+  object-fit: cover;
+}
+.tweetForm {
+  width: 100%;
+  padding: 10px 4px;
+  position: relative;
+}
+.tweetForm input {
+  width: 100%;
+  color: #000;
+  background-color: #dcdfe1;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  padding-inline: 2px;
+}
+.tweetForm button {
+  padding: 0 16px;
+  height: 36px;
+  width: 66px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  border: none;
+  color: #fff;
+  background-color: #1D9BF0;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.tweetForm button:hover {
+  background-color: #0f78be;
+}

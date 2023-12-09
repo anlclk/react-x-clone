@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
-import Post from "../leftbar/post/post";
+import Modal from "../../modal/modal";
+import { useState } from "react";
 
 export default function Navbar() {
+    const [modal, setModal] = useState(false);
+    function openModal() {
+        setModal(true);
+    }
+
     return(
         <nav className="navbar">
             <Link to="/" className="navbarLink">
@@ -113,7 +119,10 @@ export default function Navbar() {
                     </div>
                 </Link>
             </details>
-            <Post />
+            <button onClick={openModal} className="btnPost">
+              Post
+            </button>
+            {modal && <Modal closeModal={setModal} />}
         </nav>
         
     );
