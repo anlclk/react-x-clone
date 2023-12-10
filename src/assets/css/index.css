@@ -73,7 +73,8 @@ summary {
 }
 .leftbar {
   width: 275px;
-  height: 100vh; 
+  height: 100vh;
+  position: relative; 
   /* 100vh 'view height' ekranın görünen yüksekliğinin tamamı anlamına gelir */
 }
 .logo {
@@ -501,7 +502,7 @@ input[type="file"] {
   padding: 10px 15px;
   /* background-color: yellowgreen; */
   position: absolute;
-  left: 47%;
+  left: 209%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 10; 
@@ -576,4 +577,58 @@ input[type="file"] {
 }
 .tweetForm button:hover {
   background-color: #0f78be;
+}
+.shortcutRelative {
+  background-color: #1D9BF0;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  position: relative;
+}
+.shortcutArea {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 90px;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+}
+.shortcutContent {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  padding-left: 10px;
+  height: 65px;
+}
+.shortcutContent:hover {
+  background-color: rgb(231, 233, 234, 0.1);
+}
+.shortcutImg {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.shortcutImg img {
+  object-fit: cover;
+}
+.shortcutUser {
+  width: 120px;
+  padding-left: 18px;
+}
+.shortcutSignout {
+  display: flex;
+  justify-content: center;
+  width: 80px;
+}
+.btnLogout {
+  padding: 5px 10px;
+  border-radius: 18px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
