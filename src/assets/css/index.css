@@ -37,13 +37,13 @@ h4 {
   color: #fff;
   font-size: 20px;
 }
-#login {
+/* #login {
   top: 200px;
   left: 150px;
 }
 #register {
   left: 630px;
-}
+} */
 details {
   padding: 12px;
   /* border-left: 1px solid #2f3336;
@@ -295,17 +295,8 @@ details[open] summary {
   background-color: #000;
 }
 .loginRegister {
-  position: relative;
   width: 600px;
   height: 700px;
-  overflow: hidden;
-}
-.registerArea {
-  border: 1px solid salmon;
-  width: 598px;
-  height: 470px;
-  position: relative;
-  margin: 0 auto;
 }
 .wallpaper {
   margin-bottom: 70px;
@@ -359,7 +350,7 @@ input[type="file"] {
 .btnBox {
   width: 220px;
   position: relative;
-  margin: 20px auto;
+  margin: 0 auto;
   /* box-shadow: 0 0 30px 1px rgb(29, 155, 240); */
   border-radius: 16px;
 }
@@ -377,6 +368,10 @@ input[type="file"] {
   z-index: 1;
   transition: .2s;
 }
+.left {
+  left: 0;
+  top: 0;
+}
 .btnToggle {
   padding: 10px 30px;
   border: none;
@@ -387,10 +382,13 @@ input[type="file"] {
   color: #fff;
 }
 .form {
-  position: absolute;
-  top: 80px;
+  position: relative;
+  top: 60px;
   width: 100%;
   transition: .2s;
+}
+#login {
+  left: 146px;
 }
 .form input[type="text"],
 .form input[type="password"],

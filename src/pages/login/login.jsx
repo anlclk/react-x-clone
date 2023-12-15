@@ -1,123 +1,32 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { createClient } from '@supabase/supabase-js';
-import { useNavigate } from "react-router-dom";
+import SignIn from "./register/register";
+import LoginForm from "./loginform/loginform";
 
 
 export const supabase = createClient('https://lidphrkwukyweuidqvrw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpZHBocmt3dWt5d2V1aWRxdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA4NTQyNjksImV4cCI6MjAxNjQzMDI2OX0.3MfFWLCYehENg4UzNfw1I452MesQKqw0MgNJLNjNSqk');
 
 
-
-
-const addUser = async(e) => {
-    e.preventDefault();
-    const userSignIn = Object.fromEntries(new FormData(e.target));
-    console.log(userSignIn);
-    // console.log(userSignIn.profilePicturesUpload);
-    // console.log(userSignIn.wallpaperImg);
-    // console.log(userSignIn.wallpaperImg.name)
-    
-    const { data, error } = await supabase.auth.signUp(
-        {
-            email: userSignIn.email,
-            password: userSignIn.password,
-            options: {
-                data: {
-                    bio: userSignIn.bio,
-                    username: userSignIn.username,
-                    userId: userSignIn.userId
-                }
-            }
-        }
-    );
-
-    const { data: imgWallpaper, error: imgWallpaperError } = await supabase.storage
-        .from('profileandwallpaper')
-        .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
-        
-        console.log(imgWallpaper);
-        console.log(imgWallpaperError);
-    
-
-    const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
-        .from('profileandwallpaper')
-        .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
-        
-        console.log(imgProfilePictures);
-        console.log(imgProfilePicturesError);
-}
-    
-
-
-
-
-
-
 export default function Login() {
-    const loginEl = document.querySelector("#login");
-    const registerEl = document.querySelector("#register");
-    const btnEl = document.querySelector(".slider");
-    
-
-    const navigate = useNavigate()
-
-    const userLogin = async(e) => {
-        e.preventDefault();
-        const userLoginForm = Object.fromEntries(new FormData(e.target));
-        const { data: {user}, error } = await supabase.auth.signInWithPassword(
-            {
-                email: userLoginForm.email,
-                password: userLoginForm.password,
-            })
-            // console.log(userLoginForm);
-            // console.log(user);
-
-            console.log(user);
-
-            if(error) {
-                console.log('Hatalı şifre veya böyle bir kullanıcı bulunamadı');
-                return;
-            }
+    const [login, setLogin] = useState("login");
+    const sliderRef = useRef();
 
 
-        navigate('/');
-}
-    
-
-    function handleLoginForm() {
-        loginEl.style.left = "-500px";
-        registerEl.style.left = "28px";
-        btnEl.style.left = "0";
+    function handleRegister() {
+        console.log('sigin tıklandı');
+        sliderRef.current.classList.remove('left');
+        setLogin("sigin");
     }
-    
-    function handleRegisterForm() {
-        registerEl.style.left = "650px";
-        loginEl.style.left = "150px";
-        btnEl.style.left = "110px";
-    }
-
-    const imagePreview = useRef();
-    const profilePicturesPreview = useRef();
-
-    function previewImage(e) {
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-            imagePreview.current.src = ev.target.result;
-        }
-        reader.readAsDataURL(e.target.files[0]);
-    }
-
-    function previewProfilePictures(e) {
-        const readerProfile = new FileReader();
-        readerProfile.onload = function(ev) {
-            profilePicturesPreview.current.src = ev.target.result;
-        }
-        readerProfile.readAsDataURL(e.target.files[0]);
-    }
+    function handleLogin() {
+        sliderRef.current.classList.add('left');
+        console.log('logintıklandı')
+        setLogin("login");
+    }   
     return(
         <div className="loginRegisterPage">
             <div className="loginRegister">
                 <div className="btnBox">
-                    <div className="slider">
+                    <div className="slider" ref={sliderRef}>
                         <svg viewBox="0 0 24 24" height="40" width="40">
                             <path 
                               fill="#fff"
@@ -125,38 +34,12 @@ export default function Login() {
                             </path>
                         </svg>
                     </div>
-                    <button className="btnToggle" onClick={handleLoginForm} >Log In</button>
-                    <button className="btnToggle" onClick={handleRegisterForm} >Sign In</button>
+                    <button className="btnToggle" onClick={handleLogin} >Log In</button>
+                    <button className="btnToggle" onClick={handleRegister} >Sign In</button>
                 </div>
-                <form id="login" autoComplete="off" className="form" onSubmit={userLogin}>
-                        <input required type="email" name="email" placeholder="e-mail"/> 
-                        <input required type="password" name="password" placeholder="password" />
-                        <button className="btnLogin" type="submit">login</button>
-                </form>
-                <form id="register" className="form" autoComplete="off" onSubmit={addUser}>
-                    <div className="wallpaper">
-                        <img src="https://placehold.co/550x183" ref={imagePreview} alt="wallpaper" />
-                        <label className="wallpaperPreviewArea">
-                            <input type="file" className="wallpaperUpload" name="wallpaperImg" onChange={previewImage} accept="image/png, image/jpeg" id="wallpaperInput" />
-                        </label>
-                    </div>
-                    <div className="profilePictures">
-                        <div className="profilePictureRelative">
-                            <img src="https://placehold.co/377x377" ref={profilePicturesPreview} alt="profilePicture" />
-                            <label className="profilePicturesPreviewArea">
-                                <input type="file" name="profilePicturesUpload" onChange={previewProfilePictures} accept="image/png, image/jpeg" id="profilePicturesInput" />
-                            </label>
-                        </div>
-                    </div>
-                    <div className="userDetails">
-                        <input required name="username" type="text" placeholder="username" />
-                        <input required type="text" name="userId" placeholder="@userId"/>
-                        <input required type="text" name="bio" placeholder="bio" />
-                        <input required type="email" name="email" placeholder="e-mail"/>
-                        <input required type="password" name="password" placeholder="password"/>
-                        <button className="btnLogin" type="submit" >Sign In</button>
-                    </div>
-                </form>
+                
+                {login === "login" ? <SignIn /> : <LoginForm />}
+                
             </div>
         </div>
     );

@@ -12,6 +12,8 @@ export default function Profile() {
           setUser(session?.user);
         })
       }, []);
+
+    console.log(user)
       
 
     return(
