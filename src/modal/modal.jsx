@@ -8,7 +8,7 @@ export default function Modal({ closeModal }) {
         e.preventDefault();
         const addpost = Object.fromEntries(new FormData(e.target));
         const postscontent = addpost.content
-        const { data, error } = await supabase.from('tweetler').insert([ { caption: postscontent } ]).select()
+        const { data, error } = await supabase.from('tweetler').insert({ tweet: postscontent })
         clearInput.current.value = ''
         closeModal(false);
     }

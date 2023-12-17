@@ -23,37 +23,40 @@ export default function SignIn() {
 
 
     const addUser = async(e) => {
-    e.preventDefault();
-    const userSignIn = Object.fromEntries(new FormData(e.target));
-    console.log(userSignIn);
-    // console.log(userSignIn.profilePicturesUpload);
-    // console.log(userSignIn.wallpaperImg);
-    // console.log(userSignIn.wallpaperImg.name)
-    
-    const { data, error } = await supabase.auth.signUp(
-        {
-            email: userSignIn.email,
-            password: userSignIn.password,
-            options: {
-                data: {
-                    bio: userSignIn.bio,
-                    username: userSignIn.username,
-                    userId: userSignIn.userId
+        e.preventDefault();
+        const userSignIn = Object.fromEntries(new FormData(e.target));
+        
+        const { data, error } = await supabase.auth.signUp(
+            {
+                email: userSignIn.email,
+                password: userSignIn.password,
+                options: {
+                    data: {
+                        bio: userSignIn.bio,
+                        username: userSignIn.username,
+                        userId: userSignIn.userId
+                    }
                 }
             }
-        }
-    );
+        );
 
-    const { data: imgWallpaper, error: imgWallpaperError } = await supabase.storage
-        .from('profileandwallpaper')
-        .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
+        const  { data: updateData , error: updateError } = await supabase.from("profiles").update(
+            {
+                user_name: userSignIn.username,
+                user_id: userSignIn.userId,
+                bio: userSignIn.bio
+        })
+
+        const { data: imgWallpaper, error: imgWallpaperError } = await supabase.storage
+            .from('profileandwallpaper')
+            .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
+            
         
-       
-    
+        
 
-    const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
-        .from('profileandwallpaper')
-        .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
+        const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
+            .from('profileandwallpaper')
+            .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
         
 }
 
