@@ -13,19 +13,13 @@ export default function LoginForm() {
                 email: userLoginForm.email,
                 password: userLoginForm.password,
             })
-            // console.log(userLoginForm);
-            // console.log(user);
-
-            console.log(user);
 
             if(error) {
                 console.log('Hatalı şifre veya böyle bir kullanıcı bulunamadı');
                 return;
             }
-
-
         navigate('/');
-}
+    }
     return(
         <form id="login" autoComplete="off" className="form" onSubmit={userLogin}>
             <input required type="email" name="email" placeholder="e-mail"/> 

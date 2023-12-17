@@ -48,16 +48,13 @@ export default function SignIn() {
         .from('profileandwallpaper')
         .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
         
-        console.log(imgWallpaper);
-        console.log(imgWallpaperError);
+       
     
 
     const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
         .from('profileandwallpaper')
         .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
         
-        console.log(imgProfilePictures);
-        console.log(imgProfilePicturesError);
 }
 
     return(

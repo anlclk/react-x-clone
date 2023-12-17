@@ -1,5 +1,17 @@
+import { useRef } from "react";
+import { supabase } from "../pages/login/login";
+
 
 export default function Modal({ closeModal }) {
+    const clearInput = useRef();
+    const post = async(e) => {
+        e.preventDefault();
+        const addpost = Object.fromEntries(new FormData(e.target));
+        const postscontent = addpost.content
+        const { data, error } = await supabase.from('tweetler').insert([ { caption: postscontent } ]).select()
+        clearInput.current.value = ''
+        closeModal(false);
+    }
     return(
         <div className="addTweetArea">
                 <button className="btnModal" onClick={() => { closeModal(false) }}>
@@ -16,13 +28,11 @@ export default function Modal({ closeModal }) {
                             <img src="https://picsum.photos/id/2/55/55" alt="" />
                         </div>
                     </div>
-                    <form className="tweetForm">
-                        <input type="text" placeholder="What is happening?!" />
+                    <form className="tweetForm" onSubmit={post}>
+                        <input type="text" name="content" placeholder="What is happening?!" ref={clearInput} />
                         <button>post</button>
                     </form>
                 </div>
         </div>
-        
-
     );
 }

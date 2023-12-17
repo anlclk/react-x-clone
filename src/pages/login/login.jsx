@@ -8,18 +8,16 @@ export const supabase = createClient('https://lidphrkwukyweuidqvrw.supabase.co',
 
 
 export default function Login() {
-    const [login, setLogin] = useState("login");
+    const [login, setLogin] = useState("sigin");
     const sliderRef = useRef();
 
 
     function handleRegister() {
-        console.log('sigin tıklandı');
         sliderRef.current.classList.remove('left');
         setLogin("sigin");
     }
     function handleLogin() {
         sliderRef.current.classList.add('left');
-        console.log('logintıklandı')
         setLogin("login");
     }   
     return(
