@@ -34,31 +34,25 @@ export default function SignIn() {
                     data: {
                         bio: userSignIn.bio,
                         username: userSignIn.username,
-                        userId: userSignIn.userId
+                        userdataname: userSignIn.userdataname
                     }
                 }
             }
         );
-
-        const  { data: updateData , error: updateError } = await supabase.from("profiles").update(
-            {
-                user_name: userSignIn.username,
-                user_id: userSignIn.userId,
-                bio: userSignIn.bio
-        })
+        console.log(data);
+        console.log(error);
+        
 
         const { data: imgWallpaper, error: imgWallpaperError } = await supabase.storage
             .from('profileandwallpaper')
             .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
             
         
-        
-
         const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
             .from('profileandwallpaper')
             .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
         
-}
+    }
 
     return(
         <form id="register" className="form" autoComplete="off" onSubmit={addUser}>
@@ -78,10 +72,10 @@ export default function SignIn() {
             </div>
             <div className="userDetails">
                 <input required name="username" type="text" placeholder="username" />
-                <input required type="text" name="userId" placeholder="@userId"/>
+                <input required type="text" name="userdataname" placeholder="@userId"/>
                 <input required type="text" name="bio" placeholder="bio" />
                 <input required type="email" name="email" placeholder="e-mail"/>
-                <input required type="password" name="password" placeholder="password"/>
+                <input required type="password" name="password" autoComplete="off" placeholder="password"/>
                 <button className="btnLogin" type="submit" >Sign In</button>
             </div>
         </form>

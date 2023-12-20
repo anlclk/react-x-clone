@@ -1,14 +1,19 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { supabase } from "../pages/login/login";
-
+import SiteContext from "../context/SiteContext"
 
 export default function Modal({ closeModal }) {
+    const user = useContext(SiteContext);
+    console.log(user);
     const clearInput = useRef();
     const post = async(e) => {
         e.preventDefault();
         const addpost = Object.fromEntries(new FormData(e.target));
         const postscontent = addpost.content
-        const { data, error } = await supabase.from('tweetler').insert({ tweet: postscontent })
+        const { data, error } = await supabase.from('tweetler').insert({
+            content: postscontent,
+            profile_id: user.id
+        });
         clearInput.current.value = ''
         closeModal(false);
     }

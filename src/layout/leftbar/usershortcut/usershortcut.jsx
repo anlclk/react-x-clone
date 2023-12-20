@@ -8,6 +8,7 @@ import { useContext } from "react";
 export default function Usershortcut() {
     const logoutnavigate = useNavigate();
     const user = useContext(SiteContext);
+    console.log(user);
 
     async function signOut() {
         const { error } = await supabase.auth.signOut();
@@ -25,10 +26,10 @@ export default function Usershortcut() {
                 </div>
                 <div className="shortcutUser">
                     <p>{user?.user_metadata?.username}</p>
-                    <p>{user?.user_metadata?.userId}</p>
+                    <p>{user?.user_metadata?.userdataname}</p>
                 </div>
                 <div className="shortcutSignout">
-                    <button className="btnLogout" onClick={signOut}>log out</button>
+                    <button className="btnLogout" onClick={signOut}>çıkış yap</button>
                 </div>
             </div>
         </div>

@@ -10,9 +10,9 @@ export default function MyPosts() {
 
     useEffect(() => {
         const data = async () => {
-            const { data, error } = await supabase.from('tweetler').select()
-            const filteredPosts = data.filter(x => x.user_id === userid);
-            setMyposts(filteredPosts);
+            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname)");
+            console.log(data);
+            setMyposts(data);
         }
         data();
     },[]);
@@ -27,12 +27,12 @@ export default function MyPosts() {
             </div>
             <div className="postOtherDetails">
                 <div className="postUserInformation">
-                    <h3>{user?.user_metadata?.username}</h3>
-                    <h4>{user?.user_metadata?.userId}</h4>
-                    <h4>{x.created_at.substring(0, 10).split('-').reverse().join('-')}</h4>
+                    <h3>{x.profiles.username}</h3>
+                    <h4>{x.profiles.userdataname}</h4>
+                    <h4>{x.created_at}</h4>
                 </div>
                 <div className="postContent">
-                    <p>{x.caption}</p>
+                    <p>{x.content}</p>
                 </div>
                 <div className="postIcons">
                     <div className="commentIcon">

@@ -74,7 +74,8 @@ summary {
 .leftbar {
   width: 275px;
   height: 100vh;
-  position: relative; 
+  position: sticky; 
+  top: 0;
   /* 100vh 'view height' ekranın görünen yüksekliğinin tamamı anlamına gelir */
 }
 .logo {
@@ -83,7 +84,11 @@ summary {
 }
 .rightbar {
   width: 350px;
+  height: 100vh;
   padding-top: 8px;
+  position: sticky;
+  top: 0;
+  overflow-x: hidden
 }
 .navbar {
   padding-left: 5px;

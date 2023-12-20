@@ -8,11 +8,12 @@ export default function LoginForm() {
     const userLogin = async(e) => {
         e.preventDefault();
         const userLoginForm = Object.fromEntries(new FormData(e.target));
-        const { data: {user}, error } = await supabase.auth.signInWithPassword(
+        const { data, error } = await supabase.auth.signInWithPassword(
             {
                 email: userLoginForm.email,
                 password: userLoginForm.password,
             })
+            console.log(data);
 
             if(error) {
                 console.log('Hatalı şifre veya böyle bir kullanıcı bulunamadı');
