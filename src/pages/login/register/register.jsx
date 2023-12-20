@@ -44,13 +44,15 @@ export default function SignIn() {
         
 
         const { data: imgWallpaper, error: imgWallpaperError } = await supabase.storage
-            .from('profileandwallpaper')
+            .from('wallpaper')
             .upload(`${userSignIn.email}1.jpg`, userSignIn.wallpaperImg);
+            console.log(imgWallpaperError)
             
         
         const { data: imgProfilePictures, error: imgProfilePicturesError } = await supabase.storage
-            .from('profileandwallpaper')
+            .from('avatar')
             .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
+            console.log(imgProfilePicturesError);
         
     }
 
@@ -59,14 +61,14 @@ export default function SignIn() {
             <div className="wallpaper">
                 <img src="https://placehold.co/550x183" ref={imagePreview} alt="wallpaper" />
                 <label className="wallpaperPreviewArea">
-                    <input type="file" className="wallpaperUpload" name="wallpaperImg" onChange={previewImage} accept="image/png, image/jpeg" id="wallpaperInput" />
+                    <input type="file" className="wallpaperUpload" name="wallpaperImg" onChange={previewImage} accept="image/jpg, image/jpeg" id="wallpaperInput" />
                 </label>
             </div>
             <div className="profilePictures">
                 <div className="profilePictureRelative">
                     <img src="https://placehold.co/377x377" ref={profilePicturesPreview} alt="profilePicture" />
                     <label className="profilePicturesPreviewArea">
-                        <input type="file" name="profilePicturesUpload" onChange={previewProfilePictures} accept="image/png, image/jpeg" id="profilePicturesInput" />
+                        <input type="file" name="profilePicturesUpload" onChange={previewProfilePictures} accept="image/jpg, image/jpeg" id="profilePicturesInput" />
                     </label>
                 </div>
             </div>
