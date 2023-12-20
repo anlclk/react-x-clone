@@ -10,7 +10,7 @@ export default function MyPosts() {
 
     useEffect(() => {
         const data = async () => {
-            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname)");
+            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname, email)");
             console.log(data);
             setMyposts(data);
         }
@@ -22,7 +22,7 @@ export default function MyPosts() {
         {myposts.map(x => <div className="postArea" key={x.id}>
         <div className="postUserImg">
                 <div className="postUserImgArea">
-                    <img src="https://picsum.photos/id/237/50/50" alt="" />
+                    <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${x?.profiles?.email}.jpg`} alt="" />
                 </div>
             </div>
             <div className="postOtherDetails">

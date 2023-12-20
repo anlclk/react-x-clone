@@ -22,7 +22,7 @@ export default function Usershortcut() {
         <div className="shortcutArea">
             <div className="shortcutContent">
                 <div className="shortcutImg">
-                    <img src="" alt="" />
+                    <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${user?.email}.jpg`} alt="" />
                 </div>
                 <div className="shortcutUser">
                     <p>{user?.user_metadata?.username}</p>

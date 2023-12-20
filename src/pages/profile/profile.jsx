@@ -18,10 +18,10 @@ export default function Profile() {
         </div>
         <div className='profileArea'>
             <div>
-                <img src="https://picsum.photos/id/237/598/183" alt="" />
+                <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/wallpaper/${profile?.email}1.jpg`} alt="" />
             </div>
             <div className='profilePictures'>
-                <img src="https://picsum.photos/id/235/133/133" alt="" />
+                <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${profile?.email}.jpg`} alt="" />
             </div>
             <div className='informationProfile'>
                 <div className='setupProfile'>

@@ -18,7 +18,7 @@ export default function ForyouTweets() {
         allpost.map(post => <div className="postArea" key={post.id}>
             <div className="postUserImg">
                     <div className="postUserImgArea">
-                        <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/anlclk@hotmail.com.jpg`} alt="" />
+                        <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${post?.profiles?.email}.jpg`} alt="" />
                     </div>
                 </div>
                 <div className="postOtherDetails">

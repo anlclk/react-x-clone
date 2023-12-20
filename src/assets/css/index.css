@@ -628,13 +628,12 @@ input[type="file"] {
   position: absolute;
   bottom: 0;
   right: 0;
-
 }
 .shortcutContent {
   display: flex;
   align-items: center;
   border-radius: 30px;
-  padding-left: 10px;
+  padding-inline: 20px;
   height: 65px;
 }
 .shortcutContent:hover {
@@ -650,7 +649,7 @@ input[type="file"] {
   object-fit: cover;
 }
 .shortcutUser {
-  width: 120px;
+  width: 100px;
   padding-left: 18px;
 }
 .shortcutSignout {
@@ -660,11 +659,16 @@ input[type="file"] {
 }
 .btnLogout {
   padding: 5px 10px;
+  letter-spacing: 0.2px;
   border-radius: 18px;
   background-color: #e74c3c;
   color: #fff;
   border: none;
   cursor: pointer;
+  transition: 0.4s;
+}
+.btnLogout:hover {
+  background-color: #b12516;
 }
 .postArea {
   width: 100%;
