@@ -1,7 +1,9 @@
 import { supabase } from "../login"; 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import RegisterCompleted from "./registercompleted";
 
 export default function SignIn() {
+    const [register, isRegister] = useState('false');
     const imagePreview = useRef();
     const profilePicturesPreview = useRef();
 
@@ -53,11 +55,12 @@ export default function SignIn() {
             .from('avatar')
             .upload(`${userSignIn.email}.jpg`, userSignIn.profilePicturesUpload);
             console.log(imgProfilePicturesError);
-        
+
+        isRegister('true');
     }
 
     return(
-        <form id="register" className="form" autoComplete="off" onSubmit={addUser}>
+        register ? <RegisterCompleted /> : <form id="register" className="form" autoComplete="off" onSubmit={addUser}>
             <div className="wallpaper">
                 <img src="https://placehold.co/550x183" ref={imagePreview} alt="wallpaper" />
                 <label className="wallpaperPreviewArea">
@@ -78,8 +81,10 @@ export default function SignIn() {
                 <input required type="text" name="bio" placeholder="bio" />
                 <input required type="email" name="email" placeholder="e-mail"/>
                 <input required type="password" name="password" autoComplete="off" placeholder="password"/>
-                <button className="btnLogin" type="submit" >Sign In</button>
-            </div>
-        </form>
+                <button className="btnLogin" type="submit" >Kayıt ol</button>
+            </div></form>
+        
+
+
     );
 }

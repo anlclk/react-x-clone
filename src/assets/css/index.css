@@ -775,3 +775,8 @@ input[type="file"] {
       fill: #f91881;
     }
 }
+.registerCompleted {
+  padding-top: 70px;
+  text-align: center;
+  letter-spacing: 3px;
+}
