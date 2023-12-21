@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from 'react';
 import SiteContext from '../../context/SiteContext'
 import MyPosts from './myposts/myposts';
+import MyLikePosts from './mylikesposts/mylikesposts';
 
 
 export default function Profile() {
@@ -8,7 +9,7 @@ export default function Profile() {
     const [isClick, setIsClick] = useState(true);
    
     function handleGetPost() {
-        setIsClick(true);
+        setIsClick(!true);
     }
 
     return(
@@ -25,7 +26,7 @@ export default function Profile() {
             </div>
             <div className='informationProfile'>
                 <div className='setupProfile'>
-                    <button>Profili düzenle</button>
+                    <button className='profileChange'>Profili düzenle</button>
                 </div>
                 <div>
                     <h4>{profile?.user_metadata?.username}</h4>
@@ -47,10 +48,10 @@ export default function Profile() {
                     <button className={`displaybtnPost ${setIsClick ? 'border' : ''}`} onClick={handleGetPost}>Gönderiler</button>
                 </div>
                 <div className='displayClickArea'>
-                    <button className='displaybtnLikes'>Beğeniler</button>
+                    <button className='displaybtnLikes' onClick={handleGetPost}>Beğeniler</button>
                 </div>
             </div>
-            {isClick && <MyPosts/>}
+            {isClick ? <MyPosts/> : <MyLikePosts/>}
         </div>
         </>
         

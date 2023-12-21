@@ -14,15 +14,15 @@ export default function Rightbar() {
                 <input type="text" />
             </form>
             <div className="subscribeBox">
-                <h2>Subscribe to Premium</h2>
-                <p>Subscribe to unlock new features and if eligible, receive a share of ads revenue.</p>
-                <button className="btnSub">Subscribe</button>
+                <h2>Premium'a Abone Ol</h2>
+                <p>Yeni özellikleri açmak için abone ol ve uygun olman durumunda reklam geliri payı kazan.</p>
+                <button className="btnSub">Abone Ol</button>
             </div>
             <div className="trends">
-                <h1>Trends for you</h1>
+                <h1>İlgini çekebilecek gündemler</h1>
                 <div className="trendingsDetails">
                     <div className="countryDetail">
-                        <span>Trending in Turkey</span>
+                        <span>Türkiye'de Trend Olanlar</span>
                         <button className="btnTrend">
                             <svg viewBox="0 0 24 24" width="18" height="18">
                                 <path
