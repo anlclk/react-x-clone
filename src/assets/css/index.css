@@ -105,17 +105,6 @@ summary {
 .navbarBox:hover {
   background-color: #2f3336;
 }
-.details {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-details[open] summary {
-  padding-bottom: 20px;
-}
-.details:hover {
-  background-color: #2f3336;
-}
 .filterTweet {
   position: sticky;
   top: 0;
@@ -258,6 +247,7 @@ details[open] summary {
   background-color: rgb(24, 129, 199);
 }
 .btnPost {
+  margin-top: 20px;
   margin-left: 10px;
   width: 217px;
   height: 52px;
@@ -534,7 +524,6 @@ input[type="file"] {
   border: 1px solid #1D9BF0;
   border-radius: 20px;
   padding: 10px 15px;
-  /* background-color: yellowgreen; */
   position: absolute;
   left: 209%;
   top: 50%;
@@ -555,7 +544,7 @@ input[type="file"] {
   background-color: #dcdfe1;
   margin-bottom: 15px;
   border: none;
-  transition: 0.2s;
+  transition: 0.5s;
   cursor: pointer;
 }
 .btnModal:hover {
@@ -722,7 +711,7 @@ input[type="file"] {
   display: flex;
   align-items: center;
 }
-.postIcons div:nth-child(-n+4) {
+.postIcons button:nth-child(-n+4) {
   margin-right: 77px;
 }
 .commentIcon {
@@ -732,6 +721,8 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: #000;
 }
 .commentIcon svg {
   fill: #71767b;
@@ -750,6 +741,8 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: #000;
 }
 .repostIcon svg {
   fill: #71767b;
@@ -768,6 +761,8 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: #000;
 }
 .postLikeIcon svg {
   fill: #71767b;
