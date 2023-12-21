@@ -18,7 +18,7 @@ export default function Modal({ closeModal }) {
         closeModal(false);
     }
     return(
-        <div className="addTweetArea">
+        <dialog className="addTweetArea">
             <button className="btnModal" onClick={() => { closeModal(false) }}>
                 <svg viewBox="0 0 24 24" width="18" height="18">
                     <path
@@ -38,6 +38,6 @@ export default function Modal({ closeModal }) {
                     <button>post</button>
                 </form>
             </div>
-        </div>
+        </dialog>
     );
 }

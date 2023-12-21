@@ -37,24 +37,6 @@ h4 {
   color: #fff;
   font-size: 20px;
 }
-/* #login {
-  top: 200px;
-  left: 150px;
-}
-#register {
-  left: 630px;
-} */
-details {
-  padding: 12px;
-  /* border-left: 1px solid #2f3336;
-  border-top: 1px solid #2f3336;
-  border-bottom: 1px solid #2f3336; */
-}
-summary {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
 .container {
   width: 1265px;
   margin: 0 auto;
@@ -695,6 +677,10 @@ input[type="file"] {
     }
     & h4 {
       font-size: 15px;
+      color: #71767b;
+    }
+    & h5 {
+      font-size: 14px;
       color: #71767b;
     }
 }

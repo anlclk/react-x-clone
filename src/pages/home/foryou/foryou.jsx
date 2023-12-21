@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../../login/login";
+import moment from 'moment';
 
 export default function ForyouTweets() {
     const [allpost, setAllPost] = useState([]);
     const [islike, setIsLike] = useState([]);
-    const [clickBtn, setClickBtn] = useState(false);
+    const [clickBtn, setClickBtn] = useState(true);
 
     function liketweet() {
         if(clickBtn === false) {
@@ -16,7 +17,7 @@ export default function ForyouTweets() {
 
     useEffect(() => {
         const posts = async () => {
-            const { data, error } = await supabase.from('tweetler').select('*, profiles (username, userdataname, email)')
+            const { data, error } = await supabase.from('tweetler').select('*, profiles (username, userdataname, email)').order('created_at', { ascending: false })
             setAllPost(data);
         }
         posts();
@@ -35,7 +36,7 @@ export default function ForyouTweets() {
                     <div className="postUserInformation">
                         <h3>{post?.profiles?.username}</h3>
                         <h4>{post?.profiles?.userdataname}</h4>
-                        <h4>{post?.created_at}</h4>
+                        <h5>{moment(post?.created_at).fromNow()}</h5>
                     </div>
                     <div className="postContent">
                         <p>{post?.content}</p>
