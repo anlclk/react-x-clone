@@ -3,9 +3,9 @@ import Modal from "../../modal/modal";
 import { useState } from "react";
 
 export default function Navbar() {
-    const [modal, setModal] = useState('false');
+    const [modal, setModal] = useState(false);
     function openModal() {
-        setModal('true');
+        setModal(true);
     }
 
     return(

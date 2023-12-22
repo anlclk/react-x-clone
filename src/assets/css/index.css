@@ -364,9 +364,6 @@ input[type="file"] {
   width: 100%;
   transition: .2s;
 }
-#login {
-  left: 146px;
-}
 .form input[type="text"],
 .form input[type="password"],
 .form input[type="email"]
@@ -410,6 +407,11 @@ input[type="file"] {
 }
 .btnLogin:hover {
   background-color: rgb(41, 147, 217);
+}
+.addpostBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .profileArea {
   position: relative;
@@ -504,10 +506,10 @@ input[type="file"] {
   color: #fff;
 }
 .addTweetArea {
-  background-color: #dcdfe1;
+  background-color: #c7d5df;
   width: 600px;
   height: 280px;
-  border: 1px solid #1D9BF0;
+  border: 0.,5px solid #1D9BF0;
   border-radius: 20px;
   padding: 10px 15px;
   position: absolute;
@@ -527,19 +529,20 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
   outline: none;
-  background-color: #dcdfe1;
+  background-color: #c7d5df;
   margin-bottom: 15px;
   border: none;
   transition: 0.5s;
   cursor: pointer;
 }
 .btnModal:hover {
-  background-color: #0f78bebc;;
+  background-color: #1d9cf0d4;
 }
 .profileandTweet {
   display: flex;
   width: 100%;
   height: 160px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #2f3336;
 }
 .modalProfilePictures {
@@ -564,7 +567,7 @@ input[type="file"] {
 .tweetForm input {
   width: 100%;
   color: #000;
-  background-color: #dcdfe1;
+  background-color: #c7d5df;
   font-size: 20px;
   outline: none;
   border: none;
@@ -587,13 +590,6 @@ input[type="file"] {
 .tweetForm button:hover {
   background-color: #0f78be;
 }
-.shortcutRelative {
-  background-color: #1D9BF0;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  position: relative;
-}
 .shortcutArea {
   width: 100%;
   display: flex;
@@ -603,13 +599,16 @@ input[type="file"] {
   position: absolute;
   bottom: 0;
   right: 0;
+  padding-right: 10px;
 }
 .shortcutContent {
+  height: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
-  border-radius: 30px;
-  padding-inline: 20px;
-  height: 65px;
+  border-radius: 50px;
+  padding-inline: 10px;
+  gap: 5px;
 }
 .shortcutContent:hover {
   background-color: rgb(231, 233, 234, 0.1);
@@ -624,13 +623,13 @@ input[type="file"] {
   object-fit: cover;
 }
 .shortcutUser {
-  width: 100px;
-  padding-left: 18px;
+  flex: 1;
+  padding-left: 5px;
 }
 .shortcutSignout {
   display: flex;
   justify-content: center;
-  width: 80px;
+  
 }
 .btnLogout {
   padding: 5px 10px;

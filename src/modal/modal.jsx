@@ -18,7 +18,7 @@ export default function Modal({ closeModal }) {
         closeModal(false);
     }
     return(
-        <dialog className="addTweetArea">
+        <div className="addTweetArea">
             <button className="btnModal" onClick={() => { closeModal(false) }}>
                 <svg viewBox="0 0 24 24" width="18" height="18">
                     <path
@@ -30,14 +30,14 @@ export default function Modal({ closeModal }) {
             <div className="profileandTweet">
                 <div className="modalProfilePictures">
                     <div className="modalImg">
-                        <img src="https://picsum.photos/id/2/55/55" alt="" />
+                        <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${user?.email}.jpg`} alt="" />
                     </div>
                 </div>
                 <form className="tweetForm" onSubmit={post}>
                     <input type="text" name="content" placeholder="What is happening?!" autoComplete="off" ref={clearInput} />
-                    <button>post</button>
+                    <button className="addpostBtn">Gönder</button>
                 </form>
             </div>
-        </dialog>
+        </div>
     );
 }
