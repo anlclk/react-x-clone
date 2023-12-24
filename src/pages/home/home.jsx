@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../login/login";
 import moment from 'moment';
+import { Link } from "react-router-dom";
 
 
 export default function Home() {
@@ -60,8 +61,10 @@ export default function Home() {
             </div>
             <div className="postOtherDetails">
                 <div className="postUserInformation">
-                    <h3>{post?.profiles?.username}</h3>
-                    <h4>{post?.profiles?.userdataname}</h4>
+                    <Link className="userVisit" to={`/${post?.profiles?.userdataname}`}>
+                       <h3>{post?.profiles?.username}</h3>
+                       <h4>{post?.profiles?.userdataname}</h4>
+                    </Link>
                     <h5>{moment(post?.created_at).fromNow()}</h5>
                 </div>
                 <div className="postContent">

@@ -768,3 +768,9 @@ input[type="file"] {
   text-align: center;
   letter-spacing: 3px;
 }
+.userVisit {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+}

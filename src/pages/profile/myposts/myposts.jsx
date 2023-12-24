@@ -6,12 +6,12 @@ import moment from 'moment';
 
 export default function MyPosts() {
     const user = useContext(SiteContext);
-    const userid = user?.id
     const [myposts, setMyposts] = useState([]);
+    
 
     useEffect(() => {
         const data = async () => {
-            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname, email)").order('created_at', {ascending: false});
+            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname, email)").eq('profile_id', user.id).order('created_at', { ascending: false });
             console.log(data);
             setMyposts(data);
         }
@@ -21,7 +21,7 @@ export default function MyPosts() {
     return(
         <>
         {myposts.map(x => <div className="postArea" key={x.id}>
-        <div className="postUserImg">
+            <div className="postUserImg">
                 <div className="postUserImgArea">
                     <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${x?.profiles?.email}.jpg`} alt="" />
                 </div>
