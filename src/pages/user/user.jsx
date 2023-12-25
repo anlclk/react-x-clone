@@ -6,34 +6,28 @@ import UserPosts from "./userposts/userposts";
 
 export default function User() {
     const { userdataname } = useParams();
-    const [user, setUser] = useState({
-        id: '',
-        bio: '',
-        email: '',
-        userdataname: '',
-        username: ''
-
-    });
+    const [user, setUser] = useState(null);
     const [isClick, setIsClick] = useState(true);
-
+    
     function handleGetPosts() {
         setIsClick(true);
-
     }
 
-    
+
     useEffect(() => {
-        const getUserData = async() => {
+        const getUserData = async () => {
             let { data: profiles, error } = await supabase
             .from('profiles')
             .select('*').eq('userdataname', userdataname);
             console.log(profiles);
+            console.log(error);
             setUser(profiles);
         }
         getUserData();
 
-    },[userdataname])
-    console.log(user)
+    }, [userdataname])
+
+    console.log(user[0]);
 
 
     return(
@@ -54,8 +48,8 @@ export default function User() {
                 </div>
                 <div>
                     <h4>{user?.[0]?.username}</h4>
-                    <h5>{user?.[0].userdataname}</h5>
-                    <h3>{user?.[0].bio}</h3>
+                    <h5>{user?.[0]?.userdataname}</h5>
+                    <h3>{user?.[0]?.bio}</h3>
                 </div>
             </div>
             <div className='displayShare'>
@@ -66,8 +60,7 @@ export default function User() {
                     <button className={`displaybtnPost ${!setIsClick ? 'border' : ''}`}>Beğeniler</button>
                 </div>
             </div>
-            <UserPosts />
-
+            <UserPosts user={user} setUser={setUser} />
          </div>
         </>
     );

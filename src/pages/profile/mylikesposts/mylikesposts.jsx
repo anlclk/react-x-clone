@@ -8,31 +8,55 @@ import moment from "moment";
 export default function MyLikePosts() {
     const [islikeposts, setIsLikePosts] = useState([]);
     const user = useContext(SiteContext);
+    console.log(user)
     
 
     useEffect(() => {
        const getLikePosts = async () => {
-            const { data, error } = await supabase.from('likes').select('*, tweetler(profile_id, content, id, created_ at)');
-            setIsLikePosts(data);
+            const { data, error } = await supabase.from('likes').select('tweet_id, tweetler(id, created_at, profile_id, content)').eq('tweetprofile', user.id);
+            console.log(data)
+            const corts = Array.from(new Set(data.map((id) => id.tweetler.profile_id)));
+            console.log(corts);
+
+            const { data: profiletable, error: profileerror } = await supabase.from('profiles').select('username, userdataname, email').eq('id', corts);
+            console.log(profiletable);
+
+            const likedTweets = data.map((like) => ({
+                tweet_id: like.tweet_id,
+                tweet: {
+                  id: like.tweetler.id,
+                  created_at: like.tweetler.created_at,
+                  profile_id: like.tweetler.profile_id,
+                  content: like.tweetler.content,
+                  profile: profiletable.find((profile) => profile.id === like.tweetler.profile_id || {
+                    id: null,
+                    username: null,
+                    userdataname: null,
+                  }),
+                },
+            }));
+            console.log(likedTweets);
+            
+            setIsLikePosts(likedTweets);
        }
        getLikePosts();
-    }, []);
+    }, [user?.id]);
 
     return(
-        islikeposts.map(x => <div className="postArea" key={x.id}>
+        islikeposts.map((x) => <div className="postArea" key={x.tweet_id}>
             <div className="postUserImg">
                 <div className="postUserImgArea">
-                    <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${x?.profiles?.email}.jpg`} alt="" />
+                    <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${x?.tweet?.profile?.email}.jpg`} alt="" />
                 </div>
             </div>
             <div className="postOtherDetails">
                 <div className="postUserInformation">
-                    <h3>{x.profiles.username}</h3>
-                    <h4>{x.profiles.userdataname}</h4>
-                    <h5>{moment(x.created_at).fromNow()}</h5>
+                    <h3>{x.tweet.profile.username}</h3>
+                    <h4>{x.tweet.profile.userdataname}</h4>
+                    <h5>{moment(x.tweet.created_at).fromNow()}</h5>
                 </div>
                 <div className="postContent">
-                    <p>{x.content}</p>
+                    <p>{x.tweet.content}</p>
                 </div>
                 <div className="postIcons">
                     <button className="commentIcon">
@@ -50,9 +74,10 @@ export default function MyLikePosts() {
                         </svg>
                     </button>
                     <button className="postLikeIcon">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path
-                                 d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z">
+                        <svg viewBox="0 0 24 24" width="18" height="18" >
+                            <path 
+                                fill="#f91881"
+                                d="M20.884 13.19c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z">
                             </path>
                         </svg>
                     </button>
@@ -79,6 +104,6 @@ export default function MyLikePosts() {
                     </button>
                 </div>
             </div>
-        </div> )
+        </div>)
     );
 }

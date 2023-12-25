@@ -45,10 +45,10 @@ export default function Profile() {
             </div>
             <div className='displayShare'>
                 <div className='displayClickArea'>
-                    <button className={`displaybtnPost ${setIsClick ? 'border' : ''}`} onClick={handleGetPost}>Gönderiler</button>
+                    <button className={`displaybtnPost ${setIsClick ? 'border' : 'null'}`} onClick={handleGetPost}>Gönderiler</button>
                 </div>
                 <div className='displayClickArea'>
-                    <button className='displaybtnLikes' onClick={handleGetPost}>Beğeniler</button>
+                    <button className={`displaybtnLikes ${!setIsClick ? 'border' : 'null'}`} onClick={handleGetPost}>Beğeniler</button>
                 </div>
             </div>
             {isClick ? <MyPosts/> : <MyLikePosts/>}

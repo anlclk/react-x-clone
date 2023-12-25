@@ -11,7 +11,7 @@ export default function MyPosts() {
 
     useEffect(() => {
         const data = async () => {
-            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname, email)").eq('profile_id', user.id).order('created_at', { ascending: false });
+            const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname, email)").eq('profile_id', user?.id).order('created_at', { ascending: false });
             console.log(data);
             setMyposts(data);
         }

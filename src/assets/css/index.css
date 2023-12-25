@@ -774,3 +774,6 @@ input[type="file"] {
   gap: 5px;
   color: #fff;
 }
+#login {
+  left: 140px;
+}
