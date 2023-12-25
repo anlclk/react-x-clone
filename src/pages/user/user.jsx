@@ -2,33 +2,42 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../login/login";
 import UserPosts from "./userposts/userposts";
+import UserLikes from "./userlikes/userlikes";
 
 
 export default function User() {
     const { userdataname } = useParams();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
     const [isClick, setIsClick] = useState(true);
     
     function handleGetPosts() {
         setIsClick(true);
     }
+    function handleGetLikes() {
+        setIsClick(false);
+    }
 
 
     useEffect(() => {
         const getUserData = async () => {
-            let { data: profiles, error } = await supabase
-            .from('profiles')
-            .select('*').eq('userdataname', userdataname);
-            console.log(profiles);
-            console.log(error);
-            setUser(profiles);
+            try {
+                const { data: profiles, error } = await supabase.from('profiles').select('*').eq('userdataname', userdataname);
+                console.log(profiles);
+                setUser(profiles);
+            } catch(error) {
+                console.log(error);
+            }finally {
+                setIsLoading(false);
+            }
         }
         getUserData();
 
     }, [userdataname])
 
-    console.log(user[0]);
+    
 
+    console.log(user);
 
     return(
         <>
@@ -54,13 +63,24 @@ export default function User() {
             </div>
             <div className='displayShare'>
                 <div className='displayClickArea'>
-                    <button className={`displaybtnPost ${setIsClick ? 'border' : ''}`} onClick={handleGetPosts}>Gönderiler</button>
+                    <button className={`displaybtnPost ${isClick ? 'border' : ''}`} onClick={handleGetPosts}>Gönderiler</button>
                 </div>
                 <div className='displayClickArea'>
-                    <button className={`displaybtnPost ${!setIsClick ? 'border' : ''}`}>Beğeniler</button>
+                    <button className={`displaybtnLikes ${isClick ? '' : 'border'}`} onClick={handleGetLikes} >Beğeniler</button>
                 </div>
             </div>
-            <UserPosts user={user} setUser={setUser} />
+            {isLoading ? (
+                <h1>Loading...</h1>
+            ) : (
+                <>
+                    {isClick ? (
+                        <UserPosts user={user} />
+                    ) : (
+                        <UserLikes user={user} />
+                    )}
+                </>
+            )}
+
          </div>
         </>
     );

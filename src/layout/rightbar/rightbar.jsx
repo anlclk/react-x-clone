@@ -35,6 +35,66 @@ export default function Rightbar() {
                     <h3>Fatih Terim</h3>
                     <span>3,829 posts</span>
                 </div>
+                <div className="trendingsDetails">
+                    <div className="countryDetail">
+                        <span>Gündemdekiler</span>
+                        <button className="btnTrend">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                    fill="currentColor" 
+                                    d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h3>Türkler</h3>
+                    <span>6,008 posts</span>
+                </div>
+                <div className="trendingsDetails">
+                    <div className="countryDetail">
+                        <span>Spor</span>
+                        <button className="btnTrend">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                    fill="currentColor" 
+                                    d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h3>İcardi</h3>
+                    <span>14,008 posts</span>
+                </div>
+                <div className="trendingsDetails">
+                    <div className="countryDetail">
+                        <span>Gündemdekiler</span>
+                        <button className="btnTrend">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                    fill="currentColor" 
+                                    d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h3>Elon Musk</h3>
+                    <span>44,008 posts</span>
+                </div>
+                <div className="trendingsDetails">
+                    <div className="countryDetail">
+                        <span>Gündemdekiler</span>
+                        <button className="btnTrend">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                    fill="currentColor" 
+                                    d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h3>Amerika</h3>
+                    <span>46,008 B posts</span>
+                </div>
             </div>
         </aside>
     );

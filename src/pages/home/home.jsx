@@ -39,7 +39,7 @@ export default function Home() {
             setAllPost(data);
         }
         posts();
-    },[])
+    }, [])
 
     console.log(allpost);
 

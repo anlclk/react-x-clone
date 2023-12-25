@@ -3,7 +3,7 @@
 export default function Notification() {
     return(
         <div>
-            Notifications components
+            <h4>Bildirimler</h4>
         </div>
     );
 }

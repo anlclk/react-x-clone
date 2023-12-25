@@ -9,7 +9,10 @@ export default function Profile() {
     const [isClick, setIsClick] = useState(true);
    
     function handleGetPost() {
-        setIsClick(!true);
+        setIsClick(true);
+    }
+    function handleGetLikes() {
+        setIsClick(false);
     }
 
     return(
@@ -45,10 +48,10 @@ export default function Profile() {
             </div>
             <div className='displayShare'>
                 <div className='displayClickArea'>
-                    <button className={`displaybtnPost ${setIsClick ? 'border' : 'null'}`} onClick={handleGetPost}>Gönderiler</button>
+                    <button className={`displaybtnPost ${isClick ? 'border' : ''}`} onClick={handleGetPost}>Gönderiler</button>
                 </div>
                 <div className='displayClickArea'>
-                    <button className={`displaybtnLikes ${!setIsClick ? 'border' : 'null'}`} onClick={handleGetPost}>Beğeniler</button>
+                    <button className={`displaybtnLikes ${isClick ? '' : 'border'}`} onClick={handleGetLikes}>Beğeniler</button>
                 </div>
             </div>
             {isClick ? <MyPosts/> : <MyLikePosts/>}
