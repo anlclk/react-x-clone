@@ -1,8 +1,6 @@
 
 export default function Explore() {
     return(
-        <div>
-            Explore component
-        </div>
+        <h3>Keşfet</h3>
     );
 }
