@@ -6,6 +6,11 @@ import Layout from "../layout/layout";
 import Login from "../pages/login/login";
 import Profile from "../pages/profile/profile";
 import User from "../pages/user/user";
+import Lists from "../pages/lists/lists";
+import Messages from "../pages/messages/messages";
+import Communities from "../pages/communities/communities";
+import Premium from "../pages/premium/premium";
+import Bookmarks from "../pages/bookmarks/bookmarks";
 
 const routes = createBrowserRouter([
     {
@@ -23,6 +28,26 @@ const routes = createBrowserRouter([
                     {
                         path: '/explore',
                         element: <Explore />
+                    },
+                    {
+                        path: '/lists',
+                        element: <Lists />
+                    },
+                    {
+                        path: '/messages',
+                        element: <Messages />
+                    },
+                    {
+                        path: '/communities',
+                        element: <Communities />
+                    },
+                    {
+                        path: '/premium',
+                        element: <Premium />
+                    },
+                    {
+                        path: '/bookmarks',
+                        element: <Bookmarks />
                     },
                     {
                         path: '/notification',
