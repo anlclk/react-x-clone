@@ -1,6 +1,5 @@
 # Proje Linki : https://react-x-clone.netlify.app/login
 <br>
-<h3>AcunMedya Akademi bitirme ödevi olarak kendi isteğimle aldığım X clone projesi</h3>
 <br>
 
 <h2>Bu projede kullandığım Teknolijiler</h2>
