@@ -299,6 +299,10 @@ h4 {
 .postinImg {
   margin-bottom: 15px;
 }
+.registerCompleted {
+  text-align: center;
+  padding-top: 50px;
+}
 .wallpaperPreviewArea {
   border: 1px solid gray;
   display: inline-block;
