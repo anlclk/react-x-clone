@@ -34,6 +34,7 @@ export default function MyPosts() {
                 </div>
                 <div className="postContent">
                     <p>{x.content}</p>
+                    <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/postsImg/${x.content}.jpg`} className="postinImg" alt="" />
                 </div>
                 <div className="postIcons">
                     <button className="commentIcon">
