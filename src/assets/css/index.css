@@ -284,8 +284,20 @@ h4 {
 .wallpaper img {
   position: relative;
 }
-input[type="file"] {
+#wallpaperInput {
   display: none;
+}
+#profilePicturesInput {
+  display: none;
+}
+#postContent {
+  margin-bottom: 70px;
+}
+#postImg {
+  display: none;
+}
+.postinImg {
+  margin-bottom: 15px;
 }
 .wallpaperPreviewArea {
   border: 1px solid gray;
@@ -415,6 +427,19 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.addpostImgArea {
+  height: 36px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1D9BF0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.addpostImgArea input,label {
+  cursor: pointer;
 }
 .profileArea {
   position: relative;

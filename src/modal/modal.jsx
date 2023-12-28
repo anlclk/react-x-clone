@@ -9,7 +9,12 @@ export default function Modal({ closeModal }) {
     const post = async(e) => {
         e.preventDefault();
         const addpost = Object.fromEntries(new FormData(e.target));
-        const postscontent = addpost.content
+        const postscontent = addpost.content;
+        const { data: postinimg, error: postinimgerror } = await supabase.storage
+            .from('postsImg')
+            .upload(`${postscontent}.jpg`, addpost.postImg)
+            console.log(postinimg);
+
         const { data, error } = await supabase.from('tweetler').insert({
             content: postscontent,
             profile_id: user.id
@@ -34,7 +39,11 @@ export default function Modal({ closeModal }) {
                     </div>
                 </div>
                 <form className="tweetForm" onSubmit={post}>
-                    <input type="text" name="content" placeholder="What is happening?!" autoComplete="off" ref={clearInput} />
+                    <input type="text" name="content" id="postContent" placeholder="What is happening?!" autoComplete="off" ref={clearInput} />
+                    <div className="addpostImgArea">
+                        <label htmlFor="postImg">Resim yükle</label>
+                        <input type="file" name="postImg" id="postImg" accept="image/jpg, image/jpeg" />
+                    </div>
                     <button className="addpostBtn">Gönder</button>
                 </form>
             </div>
