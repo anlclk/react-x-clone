@@ -22,4 +22,4 @@
 
 <h3>Moment</h3>
 
--Moment kütüphanesi, tarih ve saat işlemlerini kolaylaştırmak için kullanılan bir kütüphanedir. Projede, atılan tweetlerin üzerinden ne kadar zaman geçtiğini öğrenmek için Moment kütüphanesini kullandım.
+- Moment kütüphanesi, tarih ve saat işlemlerini kolaylaştırmak için kullanılan bir kütüphanedir. Projede, atılan tweetlerin üzerinden ne kadar zaman geçtiğini öğrenmek için Moment kütüphanesini kullandım.
