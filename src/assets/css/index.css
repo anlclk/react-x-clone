@@ -11,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #000;
   color: #fff;
+  scroll-behavior: smooth;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -70,7 +71,8 @@ h4 {
   padding-top: 8px;
   position: sticky;
   top: 0;
-  overflow-x: hidden
+  overflow-x: hidden;
+  overflow: hidden;
 }
 .navbar {
   padding-left: 5px;
@@ -306,7 +308,6 @@ h4 {
   padding-top: 50px;
 }
 .wallpaperPreviewArea {
-  border: 1px solid gray;
   display: inline-block;
   width: 598px;
   height: 183px;

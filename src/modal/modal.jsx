@@ -16,17 +16,13 @@ export default function Modal({ closeModal }) {
             .from('postsImg')
             .upload(`${postscontent}.jpg`, addpost.postImg)
             console.log(postinimg);
-            console.log(postinimgerror);
-
-        const { data, error } = await supabase.from('tweetler').insert({
-            content: postscontent,
-            profile_id: user.id
-        });
-        if(data) {
-            navigate('/');
-        }
+            const { data, error } = await supabase.from('tweetler').insert({
+                content: postscontent,
+                profile_id: user.id
+            });        
         clearInput.current.value = ''
         closeModal(false);
+        window.location.reload(true);
     }
     return(
         <div className="addTweetArea">

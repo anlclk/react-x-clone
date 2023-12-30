@@ -62,7 +62,7 @@ export default function SignIn() {
     }
 
     return(
-        register ? ( <div className="registerCompleted"><h1>Kayıt Başarılı</h1><h2>Sign In tıklayarak giriş yapabilirsiniz</h2></div> ) : (
+        register ? ( <div className="registerCompleted"><h1>Kayıt Başarılı</h1><h2>Log In tıklayarak giriş yapabilirsiniz</h2></div> ) : (
             
             <form id="register" className="form" autoComplete="off" onSubmit={addUser}>
                <div className="wallpaper">
