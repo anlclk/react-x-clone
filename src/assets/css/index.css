@@ -275,8 +275,10 @@ h4 {
   background-color: #000;
 }
 .loginRegister {
+  padding-top: 100px;
   width: 600px;
   height: 700px;
+  
 }
 .wallpaper {
   margin-bottom: 70px;
@@ -343,6 +345,9 @@ h4 {
   width: 100%;
   height: 200px;
 }
+.btnArea {
+  height: 80px;
+}
 .btnBox {
   width: 220px;
   position: relative;
@@ -379,8 +384,7 @@ h4 {
 }
 .form {
   position: relative;
-  top: 60px;
-  width: 100%;
+  top: 0;
   transition: .2s;
 }
 .form input[type="text"],
@@ -807,7 +811,12 @@ h4 {
   color: #fff;
 }
 #login {
-  left: 140px;
+  width: 300px;
+  top: 0;
+  margin: 0 auto;
+}
+#login input {
+  width: 100%;
 }
 .loginFailed {
   padding-left: 50px;

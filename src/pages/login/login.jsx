@@ -23,20 +23,22 @@ export default function Login() {
     return(
         <div className="loginRegisterPage">
             <div className="loginRegister">
-                <div className="btnBox">
-                    <div className="slider" ref={sliderRef}>
-                        <svg viewBox="0 0 24 24" height="40" width="40">
-                            <path 
-                              fill="#fff"
-                              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
-                            </path>
-                        </svg>
+                <div className="btnArea">
+                    <div className="btnBox">
+                        <div className="slider" ref={sliderRef}>
+                            <svg viewBox="0 0 24 24" height="40" width="40">
+                                <path 
+                                fill="#fff"
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                </path>
+                            </svg>
+                        </div>
+                        <button className="btnToggle" onClick={handleLogin} >Log In</button>
+                        <button className="btnToggle" onClick={handleRegister} >Sign In</button>
                     </div>
-                    <button className="btnToggle" onClick={handleLogin} >Log In</button>
-                    <button className="btnToggle" onClick={handleRegister} >Sign In</button>
                 </div>
                 
-                {login === "login" ? <SignIn /> : <LoginForm />}
+                {login === "login" ? <LoginForm/> : <SignIn />}
                 
             </div>
         </div>

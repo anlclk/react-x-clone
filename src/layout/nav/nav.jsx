@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "../../modal/modal";
 import { useState } from "react";
 
 export default function Navbar() {
     const [modal, setModal] = useState(false);
+    const navigate = useNavigate();
     function openModal() {
+        navigate('/')
         setModal(true);
     }
 

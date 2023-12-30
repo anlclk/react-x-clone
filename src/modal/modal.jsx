@@ -1,8 +1,10 @@
 import { useContext, useRef } from "react";
 import { supabase } from "../pages/login/login";
 import SiteContext from "../context/SiteContext"
+import { useNavigate } from "react-router-dom";
 
 export default function Modal({ closeModal }) {
+    const navigate = useNavigate();
     const user = useContext(SiteContext);
     console.log(user);
     const clearInput = useRef();
@@ -14,11 +16,15 @@ export default function Modal({ closeModal }) {
             .from('postsImg')
             .upload(`${postscontent}.jpg`, addpost.postImg)
             console.log(postinimg);
+            console.log(postinimgerror);
 
         const { data, error } = await supabase.from('tweetler').insert({
             content: postscontent,
             profile_id: user.id
         });
+        if(data) {
+            navigate('/');
+        }
         clearInput.current.value = ''
         closeModal(false);
     }
