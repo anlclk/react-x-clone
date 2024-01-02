@@ -38,7 +38,7 @@ export default function UserLikes({ user }) {
 
     return(
         getuserLikes.map(x => 
-        <div className="postArea">
+        <div className="postArea" key={x.tweet_id}>
             <div className="postUserImg">
                 <div className="postUserImgArea">
                     <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/avatar/${x?.tweet?.profile?.email}.jpg`} alt="" />

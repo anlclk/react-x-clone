@@ -12,7 +12,7 @@ export default function UserPosts({ user }) {
 
     useEffect(() => {
         const userposts = async() => {            
-            const { data: tweetler, error } = await supabase.from('tweetler').select('id, created_at, content, profiles(id, username, email, userdataname)').eq('profile_id', userid );
+            const { data: tweetler, error } = await supabase.from('tweetler').select('id, created_at, content, profiles(id, username, email, userdataname)').eq('profile_id', userid ).order('created_at', { ascending: false });
             console.log(tweetler);
             setGetUserPost(tweetler);
         }
