@@ -34,8 +34,8 @@ export default function MyPosts() {
                 </div>
                 <div className="postContent">
                     <p>{x.content}</p>
-                    <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/postsImg/${x.content}.jpg`} className="postinImg" alt="" />
                 </div>
+                <img src={`https://ucedfsaeksatgnqrouek.supabase.co/storage/v1/object/public/postsImg/${x.content}.jpg`} className="postinImg" alt="" />
                 <div className="postIcons">
                     <button className="commentIcon">
                         <svg viewBox="0 0 24 24" width="18" height="18">
