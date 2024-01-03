@@ -1,10 +1,8 @@
 import { useContext, useRef } from "react";
 import { supabase } from "../pages/login/login";
 import SiteContext from "../context/SiteContext"
-import { useNavigate } from "react-router-dom";
 
 export default function Modal({ closeModal }) {
-    const navigate = useNavigate();
     const user = useContext(SiteContext);
     console.log(user);
     const clearInput = useRef();

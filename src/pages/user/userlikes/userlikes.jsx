@@ -10,7 +10,7 @@ export default function UserLikes({ user }) {
 
     useEffect(() => {
         const getLikes = async() => {
-            const { data: likes, error } = await supabase.from('likes').select('*, tweetler(id, content, profile_id)').eq('tweetprofile', user[0].id);
+            const { data: likes, error } = await supabase.from('likes').select('*, tweetler(id, content, profile_id, created_at)').eq('tweetprofile', user[0].id).order('created_at', { ascending: false });
             const corts = Array.from(new Set(likes.map((id) => id.tweetler.profile_id)));
 
             const { data: profiletable, error: profileerror } = await supabase.from('profiles').select('username, userdataname, email').eq('id', corts);
@@ -48,7 +48,7 @@ export default function UserLikes({ user }) {
                 <div className="postUserInformation">
                     <h3>{x.tweet.profile.username}</h3>
                     <h4>{x.tweet.profile.userdataname}</h4>
-                    <h5>{moment(x.tweet.created_at).fromNow()}</h5>
+                    <h5>{moment(x?.tweet?.created_at).fromNow()}</h5>
                 </div>
                 <div className="postContent">
                     <p>{x.tweet.content}</p>

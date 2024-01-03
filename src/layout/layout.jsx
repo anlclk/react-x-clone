@@ -20,9 +20,9 @@ export default function Layout() {
             <div className="container">
                 <Leftbar />
                 <main className="main">
-                    <main className="content">
+                    <div className="content">
                         <Outlet />
-                    </main>
+                    </div>
                 <Rightbar />
                 </main>
             </div>
