@@ -7,6 +7,7 @@ import UserLikes from "./userlikes/userlikes";
 
 export default function User() {
     const { userdataname } = useParams();
+    const [userinpost, setUserInPost] = useState(0);
     const [user, setUser] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     const [isClick, setIsClick] = useState(true);
@@ -43,6 +44,7 @@ export default function User() {
         <>
         <div className="profileUsername">
             <h4>{user?.[0]?.userdataname}</h4>
+            <h6>{userinpost} Gönderi</h6>
         </div>
         <div className="profileArea">
             <div>
@@ -74,7 +76,7 @@ export default function User() {
             ) : (
                 <>
                     {isClick ? (
-                        <UserPosts user={user} />
+                        <UserPosts user={user} userinpost={userinpost} setUserInPost={setUserInPost} />
                     ) : (
                         <UserLikes user={user} />
                     )}

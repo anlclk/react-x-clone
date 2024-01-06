@@ -6,6 +6,7 @@ import MyLikePosts from './mylikesposts/mylikesposts';
 
 export default function Profile() {
     const profile = useContext(SiteContext);
+    const [post, setPost] = useState(0);
     const [isClick, setIsClick] = useState(true);
    
     function handleGetPost() {
@@ -19,6 +20,7 @@ export default function Profile() {
         <>
         <div className="profileUsername">
             <h4>{profile?.user_metadata?.username}</h4>
+            <h6>{post} Gönderi</h6>
         </div>
         <div className='profileArea'>
             <div>
@@ -54,7 +56,7 @@ export default function Profile() {
                     <button className={`displaybtnLikes ${isClick ? '' : 'border'}`} onClick={handleGetLikes}>Beğeniler</button>
                 </div>
             </div>
-            {isClick ? <MyPosts/> : <MyLikePosts/>}
+            {isClick ? <MyPosts post={post} setPost={setPost} /> : <MyLikePosts/>}
         </div>
         </>
         

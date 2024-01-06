@@ -4,7 +4,7 @@ import { supabase } from "../../login/login";
 import moment from 'moment';
 
 
-export default function MyPosts() {
+export default function MyPosts({ post, setPost }) {
     const user = useContext(SiteContext);
     const [myposts, setMyposts] = useState([]);
     
@@ -13,6 +13,9 @@ export default function MyPosts() {
         const data = async () => {
             const { data, error } = await supabase.from('tweetler').select("*, profiles(username, userdataname, email)").eq('profile_id', user?.id).order('created_at', { ascending: false });
             console.log(data);
+            console.log(data.length);
+            setPost(data.length);
+            
             setMyposts(data);
         }
         data();

@@ -4,7 +4,7 @@ import moment from "moment";
 
 
 
-export default function UserPosts({ user }) {
+export default function UserPosts({ user, setUserInPost }) {
     const [getUserPosts, setGetUserPost] = useState([]);
     const userid = user[0].id
     console.log(userid);
@@ -14,6 +14,7 @@ export default function UserPosts({ user }) {
         const userposts = async() => {            
             const { data: tweetler, error } = await supabase.from('tweetler').select('id, created_at, content, profiles(id, username, email, userdataname)').eq('profile_id', userid ).order('created_at', { ascending: false });
             console.log(tweetler);
+            setUserInPost(tweetler.length);
             setGetUserPost(tweetler);
         }
         userposts();

@@ -6,7 +6,6 @@ import LoginForm from "./loginform/loginform";
 
 export const supabase = createClient('https://ucedfsaeksatgnqrouek.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVjZWRmc2Fla3NhdGducXJvdWVrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwMzAxNTY2OSwiZXhwIjoyMDE4NTkxNjY5fQ.5f3nDqkAs5UyALNwJTZD-9FxtXVPOEH8TFh-TeIGZRI');
 
-
 export default function Login() {
     const [login, setLogin] = useState("sigin");
     const sliderRef = useRef();
